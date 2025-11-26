@@ -32,7 +32,10 @@
   transition: opacity 0.15s ease;
 }
 
-.jp-labchronicle-run-button:hover,
+.jp-labchronicle-run-button:hover {
+  opacity: 1;
+}
+
 .jp-labchronicle-run-button:focus {
   opacity: 1;
 }
@@ -79,7 +82,6 @@
   transform: translate(-50%, -50%);
 }
 
-
 @keyframes jp-labchronicle-spinner {
   from {
     transform: rotate(0deg);
@@ -88,7 +90,6 @@
     transform: rotate(360deg);
   }
 }
-
 
 @keyframes jp-labchronicle-run-pulse {
   0%,
@@ -109,7 +110,11 @@
   font-size: 12px;
 }
 
-.jp-labchronicle-show-code-button:hover,
+.jp-labchronicle-show-code-button:hover {
+  border-color: var(--jp-brand-color1);
+  color: var(--jp-brand-color1);
+}
+
 .jp-labchronicle-show-code-button:focus {
   border-color: var(--jp-brand-color1);
   color: var(--jp-brand-color1);
