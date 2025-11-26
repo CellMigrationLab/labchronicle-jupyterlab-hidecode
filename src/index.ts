@@ -272,9 +272,7 @@ const plugin: JupyterFrontEndPlugin<void> = {
         }
         const cell = panel.content.widgets.find(widget => widget.node === cellNode);
         if (cell && isCellLocked(cell)) {
-          event.preventDefault();
-          event.stopImmediatePropagation();
-          enforceLockedState(panel, cell);
+          requestAnimationFrame(() => enforceLockedState(panel, cell));
         }
       };
 
