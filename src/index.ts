@@ -24,9 +24,9 @@ const DEFAULT_SETTINGS: HidecodeSettings = {
 };
 
 const HIDECODE_META_KEY = 'labchronicleHideCode';
-const LOCKED_CLASS = 'jp-labchronicleHideCodeLocked';
-const RUN_BUTTON_CLASS = 'jp-labchronicleRunButton';
-const RUN_BUTTON_RUNNING_CLASS = 'jp-labchronicleRunButtonRunning';
+const LOCKED_CLASS = 'jp-labchronicle-hidecode-locked';
+const RUN_BUTTON_CLASS = 'jp-labchronicle-run-button';
+const RUN_BUTTON_RUNNING_CLASS = 'jp-labchronicle-run-button-running';
 const collapserWatchers = new WeakMap<Cell, MutationObserver>();
 const CATEGORY = 'LabChronicle / Hide Code';
 
@@ -309,7 +309,7 @@ const plugin: JupyterFrontEndPlugin<void> = {
     tracker.widgetAdded.connect((_, panel) => {
       const toggleButton = new ToolbarButton({
         label: 'Show/Hide code',
-        className: 'jp-labchronicleShowCodeButton',
+        className: 'jp-labchronicle-show-code-button',
         tooltip: 'LabChronicle: hide/show active cell input',
         onClick: () => toggleActiveCellInput(panel)
       });

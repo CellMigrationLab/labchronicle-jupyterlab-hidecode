@@ -4,15 +4,15 @@
     https://jupyterlab.readthedocs.io/en/stable/developer/css.html
 */
 
-.jp-labchronicleHideCodeLocked .jp-InputPlaceholder {
+.jp-labchronicle-hidecode-locked .jp-InputPlaceholder {
   font-style: italic;
 }
 
-.jp-labchronicleHideCodeLocked .jp-Collapser {
+.jp-labchronicle-hidecode-locked .jp-Collapser {
   position: relative;
 }
 
-.jp-labchronicleRunButton {
+.jp-labchronicle-run-button {
   border: none;
   background: var(--jp-ui-font-color1);
   display: flex;
@@ -33,16 +33,16 @@
   transition: opacity 0.15s ease;
 }
 
-.jp-labchronicleRunButton:hover,
-.jp-labchronicleRunButton:focus {
+.jp-labchronicle-run-button:hover,
+.jp-labchronicle-run-button:focus {
   opacity: 1;
 }
 
-.jp-labchronicleRunButton:focus {
+.jp-labchronicle-run-button:focus {
   outline: 1px solid var(--jp-border-color1);
 }
 
-.jp-labchronicleRunButton-icon {
+.jp-labchronicle-run-button-icon {
   width: 12px;
   height: 12px;
   display: inline-flex;
@@ -50,37 +50,37 @@
   justify-content: center;
 }
 
-.jp-labchronicleRunButton-icon svg {
+.jp-labchronicle-run-button-icon svg {
   width: 100%;
   height: 100%;
   fill: var(--jp-layout-color0);
 }
 
-.jp-labchronicleRunButtonRunning {
+.jp-labchronicle-run-button-running {
   background: var(--jp-brand-color1);
-  animation: jp-labchronicleRunPulse 1s ease-in-out infinite;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+  animation: jp-labchronicle-run-pulse 1s ease-in-out infinite;
+  box-shadow: 0 0 6px rgb(0 0 0 / 30%);
 }
 
-.jp-labchronicleRunButtonRunning .jp-labchronicleRunButton-icon svg {
+.jp-labchronicle-run-button-running .jp-labchronicle-run-button-icon svg {
   opacity: 0.15;
 }
 
-.jp-labchronicleRunButtonRunning::after {
+.jp-labchronicle-run-button-running::after {
   content: '';
   width: 10px;
   height: 10px;
   border: 2px solid var(--jp-layout-color0);
   border-top-color: transparent;
   border-radius: 50%;
-  animation: jp-labchronicleSpinner 0.8s linear infinite;
+  animation: jp-labchronicle-spinner 0.8s linear infinite;
   position: absolute;
-  top: 3px;
-  left: 3px;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
 }
 
-@keyframes jp-labchronicleSpinner {
+@keyframes jp-labchronicle-spinner {
   from {
     transform: rotate(0deg);
   }
@@ -89,7 +89,7 @@
   }
 }
 
-@keyframes jp-labchronicleRunPulse {
+@keyframes jp-labchronicle-run-pulse {
   0%,
   100% {
     opacity: 0.9;
@@ -99,7 +99,7 @@
   }
 }
 
-.jp-labchronicleShowCodeButton {
+.jp-labchronicle-show-code-button {
   background-color: var(--jp-layout-color1);
   border: 1px solid var(--jp-ui-font-color2);
   border-radius: 4px;
@@ -108,8 +108,8 @@
   font-size: 12px;
 }
 
-.jp-labchronicleShowCodeButton:hover,
-.jp-labchronicleShowCodeButton:focus {
+.jp-labchronicle-show-code-button:hover,
+.jp-labchronicle-show-code-button:focus {
   border-color: var(--jp-brand-color1);
   color: var(--jp-brand-color1);
 }

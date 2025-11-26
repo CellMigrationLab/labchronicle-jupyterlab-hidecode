@@ -1,6 +1,5 @@
 # labchronicle_hidecode
 
-[![Github Actions Status](https://github.com/LabChronicle/labchronicle-jupyterlab-hidecode/workflows/Build/badge.svg)](https://github.com/LabChronicle/labchronicle-jupyterlab-hidecode/actions/workflows/build.yml)
 Hide/show notebook inputs and surface LabChronicle-style parameter widgets in JupyterLab.
 
 ## Features
@@ -103,7 +102,7 @@ jlpm test
 
 #### Integration tests
 
-This extension uses [Playwright](https://playwright.dev/docs/intro/) for the integration tests (aka user level tests).
+This extension uses Playwright for the integration tests (aka user level tests).
 More precisely, the JupyterLab helper [Galata](https://github.com/jupyterlab/jupyterlab/tree/master/galata) is used to handle testing the extension in JupyterLab.
 
 More information are provided within the [ui-tests](./ui-tests/README.md) README.
