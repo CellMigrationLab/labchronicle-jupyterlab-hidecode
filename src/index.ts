@@ -27,6 +27,7 @@ const HIDECODE_META_KEY = 'labchronicleHideCode';
 const LOCKED_CLASS = 'jp-labchronicleHideCodeLocked';
 const RUN_BUTTON_CLASS = 'jp-labchronicleRunButton';
 const RUN_BUTTON_RUNNING_CLASS = 'jp-labchronicleRunButtonRunning';
+const collapserWatchers = new WeakMap<Cell, MutationObserver>();
 const CATEGORY = 'LabChronicle / Hide Code';
 
 type HidecodeMeta = {
@@ -142,15 +143,29 @@ const plugin: JupyterFrontEndPlugin<void> = {
       }
     };
 
-    const ensureRunButton = (
-      panel: NotebookPanel,
-      cell: Cell,
-      attempt = 0
-    ) => {
+    const ensureRunButton = (panel: NotebookPanel, cell: Cell) => {
       const collapser = cell.node.querySelector('.jp-InputCollapser') as HTMLElement | null;
       if (!collapser) {
-        if (attempt < 10 && !cell.isDisposed) {
-          requestAnimationFrame(() => ensureRunButton(panel, cell, attempt + 1));
+        if (!collapserWatchers.has(cell) && !cell.isDisposed) {
+          const observer = new MutationObserver(() => {
+            if (cell.isDisposed) {
+              observer.disconnect();
+              collapserWatchers.delete(cell);
+              return;
+            }
+            const maybeCollapser = cell.node.querySelector('.jp-InputCollapser');
+            if (maybeCollapser) {
+              observer.disconnect();
+              collapserWatchers.delete(cell);
+              ensureRunButton(panel, cell);
+            }
+          });
+          observer.observe(cell.node, { childList: true, subtree: true });
+          collapserWatchers.set(cell, observer);
+          cell.disposed.connect(() => {
+            observer.disconnect();
+            collapserWatchers.delete(cell);
+          });
         }
         return;
       }
@@ -334,6 +349,14 @@ const plugin: JupyterFrontEndPlugin<void> = {
 
       const removeGuards = registerInteractionGuards(panel);
 
+      const notebookObserver = new MutationObserver(() => {
+        ensureButtonsForAll();
+      });
+      notebookObserver.observe(panel.content.node, {
+        childList: true,
+        subtree: true
+      });
+
       panel.disposed.connect(() => {
         toggleButton.dispose();
         panel.content.activeCellChanged.disconnect(enforceActiveCell);
@@ -341,6 +364,7 @@ const plugin: JupyterFrontEndPlugin<void> = {
           cellsModel.changed.disconnect(modelChangedHandler);
         }
         removeGuards();
+        notebookObserver.disconnect();
       });
 
       void panel.context.ready.then(() => {
