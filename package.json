@@ -1,6 +1,6 @@
 {
   "name": "labchronicle-hidecode",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Hide/show notebook inputs and surface LabChronicle-style parameter widgets in JupyterLab.",
   "keywords": [
     "jupyter",
