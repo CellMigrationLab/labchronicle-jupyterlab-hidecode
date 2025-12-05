@@ -8,5 +8,4 @@ default_context:
   has_settings: y
   has_binder: n
   test: y
-  repository: https://github.com/LabChronicle/labchronicle-jupyterlab-hidecode
-
+  repository: https://github.com/CellMigrationLab/labchronicle-jupyterlab-hidecode

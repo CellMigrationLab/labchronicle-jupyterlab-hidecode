@@ -1,4 +1,6 @@
-# labchronicle_hidecode
+# LabChronicle Hide Code
+
+[![labchronicle-hidecode](https://labextensions.dev/api/badge/labchronicle-hidecode?metric=downloads&leftColor=%23555&rightColor=%23F37620&style=flat)](https://labextensions.dev/extensions/labchronicle-hidecode)
 
 Hide/show notebook inputs and surface LabChronicle-style parameter widgets in JupyterLab.
 

@@ -7,9 +7,9 @@
     "jupyterlab",
     "jupyterlab-extension"
   ],
-  "homepage": "https://github.com/LabChronicle/labchronicle-jupyterlab-hidecode",
+  "homepage": "https://github.com/CellMigrationLab/labchronicle-jupyterlab-hidecode",
   "bugs": {
-    "url": "https://github.com/LabChronicle/labchronicle-jupyterlab-hidecode/issues"
+    "url": "https://github.com/CellMigrationLab/labchronicle-jupyterlab-hidecode/issues"
   },
   "license": "BSD-3-Clause",
   "author": {
@@ -26,7 +26,7 @@
   "style": "style/index.css",
   "repository": {
     "type": "git",
-    "url": "https://github.com/LabChronicle/labchronicle-jupyterlab-hidecode.git"
+    "url": "https://github.com/CellMigrationLab/labchronicle-jupyterlab-hidecode.git"
   },
   "workspaces": [
     "ui-tests"
