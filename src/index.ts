@@ -17,12 +17,12 @@ namespace CommandIDs {
   export const applyHideTag = 'jupyterlab-hidecode:apply-hide-tag';
 }
 
-interface HidecodeSettings {
+interface IHidecodeSettings {
   autoHideTaggedCells: boolean;
   hideTag: string;
 }
 
-const DEFAULT_SETTINGS: HidecodeSettings = {
+const DEFAULT_SETTINGS: IHidecodeSettings = {
   autoHideTaggedCells: true,
   hideTag: 'hide_input'
 };
@@ -53,11 +53,11 @@ const plugin: JupyterFrontEndPlugin<void> = {
   ) => {
     console.log('JupyterLab extension jupyterlab-hidecode is activated!');
 
-    let settingsSnapshot: HidecodeSettings = { ...DEFAULT_SETTINGS };
+    let settingsSnapshot: IHidecodeSettings = { ...DEFAULT_SETTINGS };
 
     const mergeSettings = (
-      raw: Partial<HidecodeSettings> | undefined
-    ): HidecodeSettings => ({
+      raw: Partial<IHidecodeSettings> | undefined
+    ): IHidecodeSettings => ({
       ...DEFAULT_SETTINGS,
       ...(raw ?? {})
     });
@@ -68,7 +68,7 @@ const plugin: JupyterFrontEndPlugin<void> = {
 
     const syncSettings = (settings?: ISettingRegistry.ISettings) => {
       const composite = (settings?.composite ??
-        {}) as Partial<HidecodeSettings>;
+        {}) as Partial<IHidecodeSettings>;
       settingsSnapshot = mergeSettings(composite);
       applySettingsToOpen();
     };
@@ -195,7 +195,7 @@ const plugin: JupyterFrontEndPlugin<void> = {
       const existing = collapser.querySelector(
         `.${RUN_BUTTON_CLASS}`
       ) as HTMLButtonElement | null;
-      let button = existing ?? document.createElement('button');
+      const button = existing ?? document.createElement('button');
       if (!existing) {
         button.type = 'button';
         button.classList.add(RUN_BUTTON_CLASS);
