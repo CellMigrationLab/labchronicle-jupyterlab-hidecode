@@ -8,7 +8,7 @@ A JupyterLab extension to hide/show notebook inputs (permanently, without accide
 
 ### 1.- Show/Hide Code
 
-Allows you to hide the code in a way where it cannot be accidentally uncollapsed by clicking into the cell. You can do this by clicking the notebook toolbar button 'Show/Hide Code' or using the keyboard shortcut `Ctrl+Shift+H` (Windows/Linux) or `Cmd+Shift+H` (Mac).
+Allows you to hide the code so it cannot be accidentally uncollapsed by clicking into the cell. You can do this by clicking the notebook toolbar button 'Show/Hide Code' or using the keyboard shortcut `Ctrl+Shift+H` (Windows/Linux) or `Cmd+Shift+H` (Mac).
 
 > Hidden cells stay locked even if you click into them—only the JupyterLab Hide Code shortcut/button changes their visibility, preventing accidental uncollapse while reading.
 
